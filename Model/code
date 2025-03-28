@@ -1,0 +1,94 @@
+
+Table User{
+  Id Int  [primary key]
+  Name Varchar(40)
+  Email Varchar(50) Unique 
+  Password varchar(40) Unique
+  Andress varchar(50)
+  Phone Varchar(50)
+}
+Table Supplier{
+  Id Int [primary key]
+  Name Varchar(50)
+  Contacto Varchar(50)
+  Phone Varchar(20)
+  Email Varchar(50)
+}
+Table Review{
+  Id Int [primary key]
+  Qualification decimal(5,2)
+  Comment Varchar(255)
+  Date Date 
+  UserId Int [ref:> User.Id]
+  // ProductId Int [ref:> ProductId]
+}
+Table Shipment{
+  Id Int [primary key]
+  Andress varchar(50)
+  State boolean
+  CompanyShipping varchar(50)
+  ShippingDate date
+  DeliveryDate date  
+}
+Table Discount{
+  Id Int [primary key]
+  Code Char(10,2)
+  Percentage Decimal(10,2)
+  StartDate Date
+  EndDate Date
+}
+Table Category{
+  Id Int [primary key]
+  Name varchar(50)
+  Description Varchar(255)
+}
+
+Table Product{
+  Id Int [primary key]
+  Name varchar(20)
+  Description Varchar(255)
+  Srice decimal(10,2)
+  Stocks Int 
+  Supplier Int [ref:> Supplier.Id]
+  Category Int [ref:> Category.Id]
+  Review Int [ref:> Review.Id]
+}
+Table PaymentMetho{
+  Id Int [primary key]
+  Guy varchar(50)
+  State boolean
+  PaymentDate Date
+}
+
+Table Car{
+  Id Int [Primary key]
+  UpdateDate date
+  UserId Int [ref: > User.Id]
+}
+
+Table Order{
+  Id Int [primary key]
+  Date Date
+  Total Decimal(12,2)
+  State Booleam 
+  UserId  Int [ref: > User.Id] 
+  PaymentMetho Int [ref: > PaymentMetho.Id]
+  Shipment  Int [ref: > Shipment.Id] 
+  Discount  Int [ref: > Discount.Id] 
+}
+
+Table OrderDetail{
+  Id Int [primary key]
+  Amount Int 
+  UnitPrice Decimal(10,2)
+  SubTotal Decimal(10,2)
+  Order Int [ref: > Order.Id]
+  Product Int [ref:> Product.Id]
+}
+
+Table DetailCart{
+  Id Int [primary key]
+  Amount int
+  Product  Int [ref: > Product.Id] 
+  Car  Int [ref: > Car.Id] 
+}
