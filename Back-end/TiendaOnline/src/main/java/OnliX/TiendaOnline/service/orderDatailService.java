@@ -23,7 +23,7 @@ public class orderDatailService {
     public Optional<orderDetail> findByIdOrderDetail(int id){
         return OrderDetailData.findById(id);
     }
-    public Void save(requestRegisterOrderDetail orderDetail){
+    public void save(requestRegisterOrderDetail orderDetail){
         OrderDetailData.save(convertRegisterToOrderDetail(orderDetail));
     }
     public orderDetail convertRegisterToOrderDetail(requestRegisterOrderDetail orderDetail){
