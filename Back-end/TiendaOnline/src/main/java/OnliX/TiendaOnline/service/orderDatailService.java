@@ -27,6 +27,20 @@ public class orderDatailService {
         OrderDetailData.save(convertRegisterToOrderDetail(orderDetail));
     }
     public orderDetail convertRegisterToOrderDetail(requestRegisterOrderDetail orderDetail){
-        return new orderDetail();
+        return new orderDetail(0, orderDetail.getAmount(), orderDetail.getUnitPrice(),orderDetail.getSubtotal());
+    }
+    public void update(int id,orderDetail orderDetailUpdate){
+        var orderDetail = findByIdOrderDetail(id);
+        if(orderDetail.isPresent()){
+            orderDetail.get().setAmount(orderDetailUpdate.getAmount());
+            orderDetail.get().setUnitPrice(orderDetailUpdate.getUnitPrice());
+            orderDetail.get().setSubtotal(orderDetailUpdate.getSubtotal());
+        }
+    }
+    public void Delete(int id){
+        var orderDetail = findByIdOrderDetail(id);
+        if(orderDetail.isPresent()){
+            orderDetail.delete(orderDetail.get());
+        }
     }
 }
