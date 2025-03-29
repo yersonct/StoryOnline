@@ -29,7 +29,17 @@ public class DiscountService {
     public discount convertRegisterToDiscount(requestRegisterDiscount discount){
         return new discount(0, discount.getCode(), discount.getPorcentage(), null, null);
     }
-
-   
-    
+    public void update(int id,discount discountUpdate){
+        var discount = findByIdDiscounts(id);
+        if(discount.isPresent()){
+            discount.get().setCode(discountUpdate.getCode());
+            discount.get().setPorcentage(discountUpdate.getPorcentage());
+        }
+    }
+    public void Delete(int id){
+        var discount = findByIdDiscounts(id);
+        if(discount.isPresent()){
+            DiscountData.delete(discount.get());
+        }
+    }
 }
