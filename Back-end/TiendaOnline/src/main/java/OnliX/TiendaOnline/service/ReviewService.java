@@ -18,7 +18,7 @@ public class ReviewService {
      */
     @Autowired
     public IReview ReviewData;
-    public List<review> findAllShipment(){
+    public List<review> findAllReview(){
         return ReviewData.findAll();
     }
     public Optional<review> findByIdReview(int id){
@@ -43,8 +43,5 @@ public class ReviewService {
             ReviewData.delete(review.get());
         }
     }
-    public Object findAllReview() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAllReview'");
-    }
+  
 }

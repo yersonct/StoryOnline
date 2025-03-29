@@ -17,10 +17,10 @@ public class paymentMethod {
     @Column(name="guy",length = 20,nullable = false)
     private String guy;
     @Column(name="state",nullable = false)
-    private String state;
+    private boolean state;
     @Column(name="paymentDate",length = 20,nullable = false)
-    private LocalDate paymentDate;
-    public paymentMethod(int id_paymentMethod, String guy, String state, LocalDate paymentDate) {
+    private String paymentDate;
+    public paymentMethod(int id_paymentMethod, String guy, boolean state, String paymentDate) {
         this.id_paymentMethod = id_paymentMethod;
         this.guy = guy;
         this.state = state;
@@ -38,16 +38,16 @@ public class paymentMethod {
     public void setGuy(String guy) {
         this.guy = guy;
     }
-    public String getState() {
+    public boolean getState() {
         return state;
     }
-    public void setState(String state) {
+    public void setState(boolean state) {
         this.state = state;
     }
-    public LocalDate getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 

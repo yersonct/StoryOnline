@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import OnliX.TiendaOnline.DTO.requestRegisterProduct;
-import OnliX.TiendaOnline.service.ProductService;
+import OnliX.TiendaOnline.DTO.requestRegistetPaymentMethod;
+import OnliX.TiendaOnline.model.paymentMethod;
+import OnliX.TiendaOnline.service.PaymentMethodService;
 
 @RestController
-@RequestMapping("api/V1/product")
-public class ProductController {
-    /*
+@RequestMapping("api/V1/paymentMethod")
+public class PaymentMenthodController {
+  /*
      * GET = Obtener datos o constutar
      * POST = Crear un registro
      * PUT = Actualización total
@@ -24,20 +25,20 @@ public class ProductController {
      * DELETE = Eliminar
      */
     @Autowired
-    private ProductService ProductService;
+    private PaymentMethodService PaymentMethodService;
     @GetMapping("/")
-    public ResponseEntity<Object> findAllProduct(){
-        var ListProduct = ProductService.findAllProduct();
-        return new ResponseEntity<>(ListProduct,HttpStatus.OK);
+    public ResponseEntity<Object>findAlLPaymentMethod(){
+        var ListPaymentMethod = PaymentMethodService.findAlPaymentMethod();
+        return new ResponseEntity<>(ListPaymentMethod,HttpStatus.OK);
     }
     @GetMapping("/{Id}")
-    public  ResponseEntity<Object> findByEntity(@PathVariable int id){
-        var product = ProductService.findByIdProduct(id);
-        return new ResponseEntity<>(product,HttpStatus.OK);
+    public ResponseEntity<Object> findBEntity(@PathVariable int id){
+        var PaymentMethod = PaymentMethodService.findByIdPaymentMethod(id);
+        return new ResponseEntity<>(PaymentMethod,HttpStatus.OK);
     }
     @PostMapping("/")
-    public String postMethodName(@RequestBody requestRegisterProduct product){
-        ProductService.save(product);
+    public String postMethodName(@RequestBody requestRegistetPaymentMethod paymentMethod){
+        PaymentMethodService.save(paymentMethod);
         return "Register OK";
     }
 }
