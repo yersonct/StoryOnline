@@ -29,6 +29,9 @@ public class order {
         this.total = total;
         this.state = state;
     }
+    public order(int id_order2, double date2, double date3, boolean state2) {
+        //TODO Auto-generated constructor stub
+    }
     public int getId_order() {
         return id_order;
     }

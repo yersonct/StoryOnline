@@ -40,7 +40,7 @@ public class orderDatailService {
     public void Delete(int id){
         var orderDetail = findByIdOrderDetail(id);
         if(orderDetail.isPresent()){
-            orderDetail.delete(orderDetail.get());
+            OrderDetailData.delete(orderDetail.get());
         }
     }
 }
