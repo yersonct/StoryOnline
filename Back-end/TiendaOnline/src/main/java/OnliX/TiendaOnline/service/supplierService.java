@@ -5,7 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import Onlix.tiendaOnline.DTO.requestRegisterSupplier
+
+import OnliX.TiendaOnline.DTO.requestRegisterSupplier;
 import OnliX.TiendaOnline.Interfaces.ISupplier;
 import OnliX.TiendaOnline.model.supplier;
 
@@ -30,6 +31,19 @@ public class supplierService {
     }
 
     public supplier convertRegisterToSupplier(requestRegisterSupplier supplier){
-        return new supplier()
+        return new supplier(0, supplier.getName(), supplier.getContact(), null);
     }
-}   
+    public void update(int id,supplier supplierUpdate){
+        var supplier = findByIdSupplier(id);
+        if(supplier.isPresent()){
+            supplier.get().setName_supplier(supplierUpdate.getName_supplier());
+            supplier.get().setContact_supplie(supplierUpdate.getContact_supplie());
+        }
+    }
+    public void Delete(int id){
+        var supplier = findByIdSupplier(id);
+        if(supplier.isPresent()){
+            supplierData.delete(supplier.get());
+        }
+    }
+}
