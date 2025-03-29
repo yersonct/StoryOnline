@@ -18,12 +18,12 @@ public class shipment {
     @Column(name="companyShipping",length = 40,nullable = false)
     private String companyShipping;
     @Column(name="shippingDate",length = 40,nullable = false)
-    private LocalDate shippingDate;
+    private String shippingDate;
     @Column(name="deliveryDate",length = 40,nullable = false)
-    private LocalDate deliveryDate;
+    private String deliveryDate;
     
-    public shipment(int id_shipment, String address, boolean state, String companyShipping, LocalDate shippingDate,
-            LocalDate deliveryDate) {
+    public shipment(int id_shipment, String address, boolean state, String companyShipping, String shippingDate,
+            String deliveryDate) {
         this.id_shipment = id_shipment;
         this.address = address;
         this.state = state;
@@ -55,16 +55,16 @@ public class shipment {
     public void setCompanyShipping(String companyShipping) {
         this.companyShipping = companyShipping;
     }
-    public LocalDate getShippingDate() {
+    public String getShippingDate() {
         return shippingDate;
     }
-    public void setShippingDate(LocalDate shippingDate) {
+    public void setShippingDate(String shippingDate) {
         this.shippingDate = shippingDate;
     }
-    public LocalDate getDeliveryDate() {
+    public String getDeliveryDate() {
         return deliveryDate;
     }
-    public void setDeliveryDate(LocalDate deliveryDate) {
+    public void setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 

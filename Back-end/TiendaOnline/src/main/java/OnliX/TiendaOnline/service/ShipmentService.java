@@ -28,6 +28,20 @@ public class ShipmentService {
         shipmentData.save(convertRegisterToShipment(shipment));
     }
     public shipment convertRegisterToShipment(requestRegisterShipment shipment){
-        return new shipment(0, null, true,shipment.getCompanyShipping(), null, null);
+        return new shipment(0, null, true,shipment.getCompanyShipping(), shipment.getShippingDate(), shipment.getDeliveryDate());
+    }
+    public void update(int id,shipment shipmentUpdate){
+        var shipment = findByIdShipment(id);
+        if(shipment.isPresent()){
+            shipment.get().setCompanyShipping(shipmentUpdate.getCompanyShipping());
+            shipment.get().setShippingDate(shipmentUpdate.getShippingDate());
+            shipment.get().setDeliveryDate(shipmentUpdate.getDeliveryDate());
+        }
+    }
+    public void Delete(int id){
+        var shipment = findByIdShipment(id);
+        if(shipment.isPresent()){
+            shipmentData.delete(shipment.get());
+        }
     }
 }
