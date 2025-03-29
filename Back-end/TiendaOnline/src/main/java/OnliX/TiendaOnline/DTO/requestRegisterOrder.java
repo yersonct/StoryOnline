@@ -21,7 +21,7 @@ public class requestRegisterOrder {
         public void setId(int id) {
             this.id = id;
         }
-        public double getDate() {
+        public LocalDate getDate() {
             return date;
         }
         public void setDate(LocalDate date) {
