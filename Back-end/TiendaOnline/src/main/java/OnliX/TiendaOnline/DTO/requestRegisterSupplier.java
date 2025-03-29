@@ -1,60 +1,38 @@
 package OnliX.TiendaOnline.DTO;
 
-public class requestRegisterUser {
+public class requestRegisterSupplier {
         /*
         * Agregar al DTO solo los elementos a exponer según
         * la petición o respuesta
         */
-
         private int id;
         private String name;
-        private String email;
-        private String role;
-
-        public requestRegisterUser(){
-
+        private String contact;
+        public requestRegisterSupplier() {
         }
-
-        public requestRegisterUser(int id, String name, String email, String role) {
+        public requestRegisterSupplier(int id, String name, String contact) {
             this.id = id;
             this.name = name;
-            this.email = email;
-            this.role = role;
+            this.contact = contact;
         }
-
         public int getId() {
             return id;
         }
-
         public void setId(int id) {
             this.id = id;
         }
-
         public String getName() {
             return name;
         }
-
         public void setName(String name) {
             this.name = name;
         }
-
-        public String getEmail() {
-            return email;
+        public String getContact() {
+            return contact;
         }
-
-        public void setEmail(String email) {
-            this.email = email;
+        public void setContact(String contact) {
+            this.contact = contact;
         }
-
-        public String getRole() {
-            return role;
-        }
-
-        public void setRole(String role) {
-            this.role = role;
-        }
-
         
-
         
 }
