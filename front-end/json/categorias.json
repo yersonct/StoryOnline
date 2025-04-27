@@ -1,0 +1,14 @@
+{
+    "categorias": [
+      {
+        "id": "CAT001",
+        "name": "Sombreros",
+        "description": "Descripción de la categoría sombreros"
+      },
+      {
+        "id": "CAT002",
+        "name": "Café",
+        "description": "Descripción de la categoría café"
+      }
+    ]
+  }

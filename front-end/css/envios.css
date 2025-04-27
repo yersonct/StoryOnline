@@ -1,0 +1,101 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #f0f5f9, #e0eafc);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenedor-principal {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+}
+
+.detalle-compra h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    text-align: left;
+}
+
+#lista-productos-comprados {
+    margin-top: 20px;
+}
+
+.producto-comprado-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.producto-comprado-item:last-child {
+    border-bottom: none;
+}
+
+.producto-comprado-item img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+
+.producto-comprado-info {
+    flex-grow: 1;
+}
+
+.producto-comprado-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.producto-comprado-info p {
+    color: #555;
+    margin-bottom: 0;
+}
+
+.producto-comprado-cantidad {
+    margin-left: auto;
+    font-weight: bold;
+    color: #007bff;
+}
+
+#total-compra {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745;
+}
+
+#volver-a-productos {
+    background-color: #6c757d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+#volver-a-productos:hover {
+    background-color: #5a6268;
+}

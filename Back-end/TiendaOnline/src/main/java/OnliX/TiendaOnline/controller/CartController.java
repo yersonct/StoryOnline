@@ -14,6 +14,7 @@ import OnliX.TiendaOnline.DTO.requestRegisterCart;
 import OnliX.TiendaOnline.model.cart;
 import OnliX.TiendaOnline.service.CartService;
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/V1/cart")
 public class CartController {

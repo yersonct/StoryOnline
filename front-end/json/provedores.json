@@ -1,0 +1,79 @@
+{
+    "proveedores": [
+      {
+        "id": "PROV001",
+        "nombre": "Artesanías del Sol",
+        "contacto": "Ana Pérez",
+        "telefono": "+57 310 123 4567",
+        "email": "info@artesaniasdelsol.com",
+        "productos": [
+          {
+            "id": "PROD001A",
+            "nombre": "Sombrero Vueltiao Auténtico",
+            "descripcion": "Sombrero tradicional colombiano tejido a mano.",
+            "precio": 85000
+          },
+          {
+            "id": "PROD002B",
+            "nombre": "Mochila Arhuaca Pequeña",
+            "descripcion": "Mochila indígena elaborada con lana de oveja.",
+            "precio": 120000
+          },
+          {
+            "id": "PROD003C",
+            "nombre": "Ruana Boyacense de Lana",
+            "descripcion": "Ruana tradicional de la región de Boyacá, ideal para el frío.",
+            "precio": 150000
+          }
+        ]
+      },
+      {
+        "id": "PROV002",
+        "nombre": "Café Montañés Selecto",
+        "contacto": "Carlos López",
+        "telefono": "+57 315 987 6543",
+        "email": "ventas@cafemontanes.co",
+        "productos": [
+          {
+            "id": "PROD004D",
+            "nombre": "Café Arábica Premium (500g)",
+            "descripcion": "Café de altura con notas frutales y achocolatadas.",
+            "precio": 28000
+          },
+          {
+            "id": "PROD005E",
+            "nombre": "Café Orgánico Tostado Molido (250g)",
+            "descripcion": "Café cultivado sin pesticidas, tostado y molido.",
+            "precio": 16000
+          }
+        ]
+      },
+      {
+        "id": "PROV003",
+        "nombre": "Cueros Finos de Colombia",
+        "contacto": "Sofía Gómez",
+        "telefono": "+57 318 555 1212",
+        "email": "pedidos@cuerosfinos.com.co",
+        "productos": [
+          {
+            "id": "PROD006F",
+            "nombre": "Bolso de Cuero Artesanal",
+            "descripcion": "Bolso de cuero genuino con detalles hechos a mano.",
+            "precio": 220000
+          },
+          {
+            "id": "PROD007G",
+            "nombre": "Zapatos de Cuero para Hombre",
+            "descripcion": "Zapatos elegantes de cuero para caballero.",
+            "precio": 280000
+          },
+          {
+            "id": "PROD008H",
+            "nombre": "Cinturón de Cuero Repujado",
+            "descripcion": "Cinturón de cuero con diseño repujado a mano.",
+            "precio": 75000
+          }
+        ]
+      }
+    ]
+  }

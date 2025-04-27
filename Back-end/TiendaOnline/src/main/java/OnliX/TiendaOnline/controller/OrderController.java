@@ -16,6 +16,7 @@ import OnliX.TiendaOnline.service.OrderService;
 
 
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/V1/order")
 public class OrderController {

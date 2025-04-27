@@ -1,0 +1,128 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #f0f5f9, #e0eafc);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.contenedor-principal {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.listado-proveedores {
+    flex: 0 0 300px;
+    padding: 30px;
+    border-right: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+}
+
+.listado-proveedores h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    text-align: left;
+}
+
+#lista-proveedores {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.proveedor-item {
+    padding: 12px 15px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.proveedor-item:hover {
+    background-color: #e7f2ff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+.detalle-proveedor {
+    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.detalle-proveedor h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    text-align: left;
+}
+
+.detalle-proveedor h3 {
+    color: #555;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.detalle-proveedor p {
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+/* Estilos para el grid de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea columnas que se ajustan al ancho */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.producto-caja {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.producto-caja h4 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.producto-caja p {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.detalle-proveedor ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detalle-proveedor ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #666;
+}
+
+.detalle-proveedor ul li:last-child {
+    border-bottom: none;
+}

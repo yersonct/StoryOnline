@@ -11,6 +11,7 @@ import OnliX.TiendaOnline.Interfaces.IOrder;
 import OnliX.TiendaOnline.model.order;
 import OnliX.TiendaOnline.model.orderDetail;
 
+@SuppressWarnings("unused")
 @Service
 public class OrderService {
 

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/V1/category")
 public class CategoryController {

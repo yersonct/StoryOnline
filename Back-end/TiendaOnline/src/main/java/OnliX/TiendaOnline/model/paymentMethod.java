@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@SuppressWarnings("unused")
 @Entity(name="paymentMethod")
 
 public class paymentMethod {

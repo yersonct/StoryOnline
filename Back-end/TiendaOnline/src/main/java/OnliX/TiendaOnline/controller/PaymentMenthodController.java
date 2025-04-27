@@ -14,6 +14,7 @@ import OnliX.TiendaOnline.DTO.requestRegistetPaymentMethod;
 import OnliX.TiendaOnline.model.paymentMethod;
 import OnliX.TiendaOnline.service.PaymentMethodService;
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/V1/paymentMethod")
 public class PaymentMenthodController {

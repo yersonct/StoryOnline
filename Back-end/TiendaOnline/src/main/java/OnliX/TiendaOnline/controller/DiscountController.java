@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/V1/discount")
 public class DiscountController {

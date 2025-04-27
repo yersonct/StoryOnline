@@ -1,0 +1,8 @@
+{
+    "Id": "ORDEN123",
+    "Date": "2025-04-26T10:00:00-05:00",
+    "Total": 113000.00,
+    "State": "Enviado",
+    "UserId": "usuario123"
+   
+}

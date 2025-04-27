@@ -1,0 +1,16 @@
+[
+    {
+      "Qualification": 5,
+      "Comment": "Excelente producto, muy recomendado.",
+      "Date": "2025-04-26T20:00:00-05:00",
+      "UserId": "usuario123",
+      "ProductId": "PROD001A"
+    },
+    {
+      "Qualification": 3,
+      "Comment": "Buen producto, aunque podría mejorar en algunos aspectos.",
+      "Date": "2025-04-25T15:30:00-05:00",
+      "UserId": "usuario123",
+      "ProductId": "PROD002B"
+    }
+  ]

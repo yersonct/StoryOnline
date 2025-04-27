@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+@SuppressWarnings("unused")
 @Entity(name="shipment")
 public class shipment {
     @Id

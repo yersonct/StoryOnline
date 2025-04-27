@@ -1,0 +1,18 @@
+{
+    "items": [
+      {
+        "id": "PROD001A",
+        "name": "Sombrero Vueltiao Auténtico",
+        "price": 85000,
+        "quantity": 1,
+        "imagenUrl": "url/del/sombrero.jpg"
+      },
+      {
+        "id": "PROD004D",
+        "name": "Café Arábica Premium (500g)",
+        "price": 28000,
+        "quantity": 2,
+        "imagenUrl": "url/del/cafe.jpg"
+      }
+    ]
+  }

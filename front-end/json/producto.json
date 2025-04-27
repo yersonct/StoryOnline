@@ -1,0 +1,34 @@
+{
+    "productos": [
+        {
+            "id": "PROD001A",
+            "name": "Sombrero Vueltiao Auténtico",
+            "description": "Sombrero tradicional colombiano tejido a mano.",
+            "price": 85000,
+            "stocks": 15,
+            "categoryId": "CAT001",
+            "supplierId": "PROV001",
+            "imagenUrl": "url/del/sombrero.jpg"
+          },
+          {
+            "id": "PROD001A",
+            "name": "Sombrero Vueltiao Auténtico",
+            "description": "Sombrero tradicional colombiano tejido a mano.",
+            "price": 85000,
+            "stocks": 15,
+            "categoryId": "CAT001",
+            "supplierId": "PROV001",
+            "imagenUrl": "url/del/sombrero.jpg"
+          },
+          {
+            "id": "PROD001A",
+            "name": "Sombrero Vueltiao Auténtico",
+            "description": "Sombrero tradicional colombiano tejido a mano.",
+            "price": 85000,
+            "stocks": 15,
+            "categoryId": "CAT001",
+            "supplierId": "PROV001",
+            "imagenUrl": "url/del/sombrero.jpg"
+          }
+    ]
+  }
