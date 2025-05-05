@@ -23,16 +23,18 @@ public class CartService {
     public Optional<cart>findByIdCart(int id){
         return CartData.findById(id);
     }
-    public void save(requestRegisterCart cart){
-        CartData.save(convertRegisterToCart(cart));
+    // public List<cart> findByName(String name){
+    //     return CartData.findByName(name);
+    // }
+    public void save(cart cart){
+        CartData.save(cart);
     }
-    public cart convertRegisterToCart(requestRegisterCart cart){
-        return new cart(0, cart.getUpdateData());
-    }
-    public void update(int id,cart cartUpdate){
+    
+    public void update(int id,requestRegisterCart cartUpdate){
         var cart = findByIdCart(id);
         if(cart.isPresent()){
             cart.get().setUpdateData(cartUpdate.getUpdateData());
+            CartData.save(cart.get());
         }
     }
     public void Delete(int id){

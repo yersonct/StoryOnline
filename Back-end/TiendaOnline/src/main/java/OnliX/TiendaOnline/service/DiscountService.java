@@ -23,17 +23,20 @@ public class DiscountService {
     public Optional<discount>findByIdDiscounts(int id){
         return DiscountData.findById(id);
     }
-    public void save(requestRegisterDiscount discount){
-        DiscountData.save(convertRegisterToDiscount(discount));
+    // public List<discount> findByName(String name){
+    //     return DiscountData.findByName(name);
+    // }
+
+    public void save(discount discount){
+        DiscountData.save(discount);
     }
-    public discount convertRegisterToDiscount(requestRegisterDiscount discount){
-        return new discount(0, discount.getCode(), discount.getPorcentage(), null, null);
-    }
-    public void update(int id,discount discountUpdate){
+    
+    public void update(int id,requestRegisterDiscount discount2){
         var discount = findByIdDiscounts(id);
         if(discount.isPresent()){
-            discount.get().setCode(discountUpdate.getCode());
-            discount.get().setPorcentage(discountUpdate.getPorcentage());
+            discount.get().setCode(discount2.getCode());
+            discount.get().setPorcentage(discount2.getPorcentage());
+            DiscountData.save(discount.get());
         }
     }
     public void Delete(int id){

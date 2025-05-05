@@ -22,6 +22,9 @@ public class shipment {
     private String shippingDate;
     @Column(name="deliveryDate",length = 40,nullable = false)
     private String deliveryDate;
+
+    public shipment() {
+    }
     
     public shipment(int id_shipment, String address, boolean state, String companyShipping, String shippingDate,
             String deliveryDate) {

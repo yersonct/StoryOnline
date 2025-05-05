@@ -1,19 +1,19 @@
 package OnliX.TiendaOnline.DTO;
 
 public class requestRegisterDiscount {
- public int id;
+ public int id_discount;
  public String code;
  public double porcentage;
  public requestRegisterDiscount(int id, String code, double porcentage) {
-    this.id = id;
+    this.id_discount = id;
     this.code = code;
     this.porcentage = porcentage;
  }
  public int getId() {
-    return id;
+    return id_discount;
  }
  public void setId(int id) {
-    this.id = id;
+    this.id_discount = id;
  }
  public String getCode() {
     return code;

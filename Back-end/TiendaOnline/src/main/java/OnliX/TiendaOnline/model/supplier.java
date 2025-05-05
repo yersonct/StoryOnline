@@ -14,15 +14,18 @@ public class supplier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_supplier",nullable = false)
     private int id_supplier;
-    @Column(name="name_supplier",length = 1000,nullable=false)
-    private String name_supplier;
+    @Column(name="name",length = 1000,nullable=false)
+    private String name;
     @Column(name="contact_supplier",length=1000,nullable=false)
     private String contact_supplie;
     @Column(name="phone",length = 1000,nullable = false)
     private String phone;
+
+    public supplier() {
+    }
     public supplier(int id_supplier, String name_supplier, String contact_supplie, String phone) {
         this.id_supplier = id_supplier;
-        this.name_supplier = name_supplier;
+        this.name = name_supplier;
         this.contact_supplie = contact_supplie;
         this.phone = phone;
     }
@@ -33,10 +36,10 @@ public class supplier {
         this.id_supplier = id_supplier;
     }
     public String getName_supplier() {
-        return name_supplier;
+        return name;
     }
     public void setName_supplier(String name_supplier) {
-        this.name_supplier = name_supplier;
+        this.name = name_supplier;
     }
     public String getContact_supplie() {
         return contact_supplie;

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import OnliX.TiendaOnline.DTO.requestRegisterUser;
 import OnliX.TiendaOnline.Interfaces.IUser;
-import OnliX.TiendaOnline.model.user;
+import OnliX.TiendaOnline.model.Users;
+
 
 @Service
 public class UserService {
@@ -18,34 +19,32 @@ public class UserService {
      */
     @Autowired
     private  IUser UserData;
-    public List<user> findAllUSer(){
+    public List<Users> findAllUSer(){
         return UserData.findAll(); // obtener todos los usuario 
     }
 
-    public Optional<user> findByIdUser(int id){
+    public Optional<Users> findByIdUser(int id){
         return UserData.findById(id);
     }
 
-    public void save(requestRegisterUser user){
-        UserData.save(convertRegisterToUser(user));
+    public void save(Users user){
+        UserData.save(user);
     }
 
-    public user convertRegisterToUser(requestRegisterUser user){
-      return new user(0, 
-        user.getName(),
-        user.getEmail(),
-        null,
-        null,
-        null,
-        user.getRole()
-        );
+   
+
+
+    public List<Users> findByName(String name){
+        return UserData.findByName(name);
     }
-    public void update(int id,user userUpdate){
+    public void update(int id,requestRegisterUser userUpdate){
         var user = findByIdUser(id);
         if(user.isPresent()){
             user.get().setName(userUpdate.getName());
             user.get().setEmail(userUpdate.getEmail());
             user.get().setRole(userUpdate.getRole());
+            
+            UserData.save(user.get());
         }
     }
     public void Delete(int id){

@@ -6,23 +6,23 @@ public class requestRegisterShipment {
         * la petición o respuesta
         */
 
-    private int id;
+    private int id_shipment;
     private String companyShipping;
     private String shippingDate;
     private String deliveryDate;
     public requestRegisterShipment() {
     }
     public requestRegisterShipment(int id, String companyShipping, String shippingDate, String deliveryDate) {
-        this.id = id;
+        this.id_shipment = id;
         this.companyShipping = companyShipping;
         this.shippingDate = shippingDate;
         this.deliveryDate = deliveryDate;
     }
     public int getId() {
-        return id;
+        return id_shipment;
     }
     public void setId(int id) {
-        this.id = id;
+        this.id_shipment = id;
     }
     public String getCompanyShipping() {
         return companyShipping;

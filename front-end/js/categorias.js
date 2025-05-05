@@ -1,7 +1,8 @@
 function mostrarListadoCategorias() {
     const listaCategoriasElement = document.getElementById('lista-categorias');
+    const apiUrlCategorias = 'http://localhost:8080/api/v1/category/'; // URL de tu API de categorías
 
-    fetch('../json/categorias.json') // Reemplaza con la URL de tu API de categorías
+    fetch(apiUrlCategorias)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -9,11 +10,11 @@ function mostrarListadoCategorias() {
             return response.json();
         })
         .then(data => {
-            data.categorias.forEach(categoria => {
+            data.forEach(categoria => { // La respuesta ahora es un array directamente
                 const categoriaDiv = document.createElement('div');
                 categoriaDiv.classList.add('categoria-item');
                 categoriaDiv.textContent = categoria.name; // Asumiendo que tienes un campo 'name'
-                categoriaDiv.addEventListener('click', () => console.log(`Categoría seleccionada: ${categoria.id}`)); // Aquí puedes implementar la lógica para filtrar productos por categoría
+                categoriaDiv.addEventListener('click', () => console.log(`Categoría seleccionada: ${categoria.id_category}`)); // Usar id_category
                 listaCategoriasElement.appendChild(categoriaDiv);
             });
         })
@@ -25,8 +26,9 @@ function mostrarListadoCategorias() {
 
 function mostrarListadoProductos() {
     const listaProductosElement = document.getElementById('lista-productos');
+    const apiUrlProductos = 'http://localhost:8080/api/v1/product/'; // URL de tu API de productos
 
-    fetch('../json/producto.json') // Reemplaza con la URL de tu API de productos
+    fetch(apiUrlProductos)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,17 +36,17 @@ function mostrarListadoProductos() {
             return response.json();
         })
         .then(data => {
-            data.productos.forEach(producto => {
+            data.forEach(producto => { // La respuesta ahora es un array directamente
                 const productoDiv = document.createElement('div');
                 productoDiv.classList.add('producto-item');
-                productoDiv.addEventListener('click', () => mostrarDetalleProducto(producto.id, data.productos));
+                productoDiv.addEventListener('click', () => mostrarDetalleProducto(producto.id_product, data)); // Usar id_product
 
                 const imagenProducto = document.createElement('img');
                 imagenProducto.src = producto.imagenUrl || 'placeholder.png';
-                imagenProducto.alt = producto.name;
+                imagenProducto.alt = producto.name_product; // Usar name_product
 
                 const nombreProductoH3 = document.createElement('h3');
-                nombreProductoH3.textContent = producto.name;
+                nombreProductoH3.textContent = producto.name_product; // Usar name_product
 
                 const precioProductoSpan = document.createElement('span');
                 precioProductoSpan.classList.add('precio');
@@ -66,15 +68,15 @@ function mostrarDetalleProducto(productoId, productos) {
     const detalleProductoElement = document.getElementById('detalle-producto');
     detalleProductoElement.innerHTML = '';
 
-    const producto = productos.find(p => p.id === productoId);
+    const producto = productos.find(p => p.id_product === productoId); // Usar id_product
 
     if (producto) {
         const nombreH2 = document.createElement('h2');
-        nombreH2.textContent = producto.name;
+        nombreH2.textContent = producto.name_product; // Usar name_product
 
         const imagenProducto = document.createElement('img');
         imagenProducto.src = producto.imagenUrl || 'placeholder-detalle.png';
-        imagenProducto.alt = producto.name;
+        imagenProducto.alt = producto.name_product;
         imagenProducto.style.maxWidth = '100%';
         imagenProducto.style.height = 'auto';
         imagenProducto.style.marginBottom = '15px';

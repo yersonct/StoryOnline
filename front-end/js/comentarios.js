@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listaMisComentariosElement = document.getElementById('lista-mis-comentarios');
     const volverProductosButton = document.getElementById('volver-a-productos');
+    const apiUrlMisComentarios = 'http://localhost:8080/api/v1/review/'; // URL para obtener las reseñas del usuario
 
     // Función para formatear la fecha (opcional)
     function formatDate(dateString) {
@@ -9,7 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return date.toLocaleDateString('es-CO', options);
     }
 
-    fetch('../json/comentarios.json') // Reemplaza con la URL correcta para obtener los comentarios del usuario
+    // Asumiendo que necesitas filtrar los comentarios por el usuario actual
+    // Necesitarás tener el ID del usuario actual disponible (por ejemplo, desde una sesión)
+    const userIdActual = 123; // Reemplaza con la forma en que obtienes el ID del usuario
+
+    let fetchUrl = apiUrlMisComentarios;
+    if (userIdActual) {
+        fetchUrl += `?userId=${userIdActual}`; // Añade un parámetro para filtrar por usuario
+    }
+
+    fetch(fetchUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -24,21 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     comentarioDiv.classList.add('comentario-item');
 
                     const calificacionH4 = document.createElement('h4');
-                    calificacionH4.textContent = `Calificación: ${comentario.Qualification}`;
+                    calificacionH4.textContent = `Calificación: ${comentario.qualification}`;
                     calificacionH4.classList.add('calificacion');
 
                     const comentarioP = document.createElement('p');
-                    comentarioP.textContent = `Comentario: ${comentario.Comment}`;
+                    comentarioP.textContent = `Comentario: ${comentario.comment}`;
 
                     const fechaP = document.createElement('p');
                     fechaP.classList.add('fecha');
-                    fechaP.textContent = `Fecha: ${formatDate(comentario.Date)}`;
+                    fechaP.textContent = `Fecha: ${formatDate(comentario.date)}`;
 
                     const userIdP = document.createElement('p');
-                    userIdP.textContent = `Usuario ID: ${comentario.UserId}`;
+                    userIdP.textContent = `Usuario ID: ${comentario.id_user}`;
 
                     const productIdP = document.createElement('p');
-                    productIdP.textContent = `Producto ID: ${comentario.ProductId}`;
+                    productIdP.textContent = `Producto ID: ${comentario.id_product}`;
 
                     comentarioDiv.appendChild(calificacionH4);
                     comentarioDiv.appendChild(comentarioP);

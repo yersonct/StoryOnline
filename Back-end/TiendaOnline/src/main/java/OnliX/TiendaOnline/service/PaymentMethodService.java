@@ -20,17 +20,20 @@ public List<paymentMethod> findAlPaymentMethod(){
 public Optional<paymentMethod> findByIdPaymentMethod(int id){
     return paymentMethodData.findById(id);
 }
-public void save(requestRegistetPaymentMethod paymentMethod){
-    paymentMethodData.save(convertRegisterToPaymentMethod(paymentMethod));
+// public List<paymentMethod> findByName(String name){
+//     return paymentMethodData.findByName(name);
+// }
+
+public void save(paymentMethod paymentMethod){
+    paymentMethodData.save(paymentMethod);
 }
-public paymentMethod convertRegisterToPaymentMethod(requestRegistetPaymentMethod paymentMethod){
-    return new paymentMethod(0, paymentMethod.getGuy(), true, paymentMethod.getPaymentDate());
-}
-public void update(int id,paymentMethod paymentMethodUpdate){
+
+public void update(int id,requestRegistetPaymentMethod user){
     var paymentMethod = findByIdPaymentMethod(id);
     if(paymentMethod.isPresent()){
-        paymentMethod.get().setGuy(paymentMethodUpdate.getGuy());
-        paymentMethod.get().setPaymentDate(paymentMethodUpdate.getPaymentDate());
+        paymentMethod.get().setGuy(user.getGuy());
+        paymentMethod.get().setPaymentDate(user.getPaymentDate());
+        paymentMethodData.save(paymentMethod.get());
     }
 }
 public void Delete(int id){

@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 
 import OnliX.TiendaOnline.DTO.requestRegisterOrder;
 import OnliX.TiendaOnline.Interfaces.IOrder;
-import OnliX.TiendaOnline.model.order;
-import OnliX.TiendaOnline.model.orderDetail;
+import OnliX.TiendaOnline.model.Orders;
 
 @SuppressWarnings("unused")
 @Service
@@ -20,24 +19,27 @@ public class OrderService {
      */
     @Autowired
     private IOrder  OrderData;
-    public   List<order> findAllOrder(){
+    public   List<Orders> findAllOrder(){
         return OrderData.findAll();
     }
-    public Optional<order> findByIdOrder(int id){
+    public Optional<Orders> findByIdOrder(int id){
         return OrderData.findById(id);
     }
-    public void save(requestRegisterOrder order){
-        OrderData.save(convertRegisterToOrder(order));
+    // public List<Orders> findByName(String name){
+    //     return OrderData.findByName(name);
+    // }
+
+    public void save(Orders order){
+        OrderData.save(order);
     }
 
-    public order convertRegisterToOrder(requestRegisterOrder order){
-        return new order(0, order.getDate(),order.getTotal(), true);
-    }
-    public void update(int id,order orderUpdate){
+
+    public void update(int id,requestRegisterOrder order2){
         var  order = findByIdOrder(id);
         if(order.isPresent()){
-            order.get().setDate(orderUpdate.getDate());
-            order.get().setTotal(orderUpdate.getTotal());
+            order.get().setDate(order2.getDate());
+            order.get().setTotal(order2.getTotal());
+            OrderData.save(order.get());
         }
     }
     public void Delete(int id){

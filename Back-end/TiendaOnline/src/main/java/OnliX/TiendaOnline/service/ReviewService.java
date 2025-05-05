@@ -25,17 +25,19 @@ public class ReviewService {
     public Optional<review> findByIdReview(int id){
         return ReviewData.findById(id);
     }
-    public void save(requestRegisterReview review){
-        ReviewData.save(convertRegisterToReview(review));
+    // public List<review> findByName(String name){
+    //     return ReviewData.findByName(name);
+    // }
+    public void save(review review){
+        ReviewData.save(review);
     }
-    public review convertRegisterToReview(requestRegisterReview review){
-        return new review(0, review.getQualification(), review.getComment(), null);
-    }
-    public void update(int id,review reviewUpdate){
+  
+    public void update(int id,requestRegisterReview listReview){
         var review = findByIdReview(id);
         if(review.isPresent()){
-            review.get().setQualification(reviewUpdate.getQualification());
-            review.get().setComment(reviewUpdate.getComment());
+            review.get().setQualification(listReview.getQualification());
+            review.get().setComment(listReview.getComment());
+            ReviewData.save(review.get());
         }
     }
     public void Delete(int id){

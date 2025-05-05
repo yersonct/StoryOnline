@@ -18,15 +18,18 @@ public class product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_product",nullable = false)
     private int id_product;
-    @Column(name="name_product",length = 200,nullable = false)
-    private String name_product;
+    @Column(name="name",length = 200,nullable = false)
+    private String name;
     @Column(name="description",length = 200,nullable= false)
     private String description;
     @Column(name="price",nullable=false)
     private double price;
+
+    public product() {
+    }
     public product(int id_product, String name_product, String description, double price) {
         this.id_product = id_product;
-        this.name_product = name_product;
+        this.name = name_product;
         this.description = description;
         this.price = price;
     }
@@ -37,10 +40,10 @@ public class product {
         this.id_product = id_product;
     }
     public String getName_product() {
-        return name_product;
+        return name;
     }
     public void setName_product(String name_product) {
-        this.name_product = name_product;
+        this.name = name_product;
     }
     public String getDescription() {
         return description;
@@ -69,7 +72,7 @@ public class product {
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private List<orderDetail> orderDetails; 
 
-    @OneToMany(mappedBy ="detailCart",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="product",cascade = CascadeType.ALL)
     private List<detailCart> detailCarts;
 }
 /*

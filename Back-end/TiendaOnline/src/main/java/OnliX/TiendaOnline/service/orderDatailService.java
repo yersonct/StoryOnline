@@ -23,12 +23,13 @@ public class orderDatailService {
     public Optional<orderDetail> findByIdOrderDetail(int id){
         return OrderDetailData.findById(id);
     }
-    public void save(requestRegisterOrderDetail orderDetail){
-        OrderDetailData.save(convertRegisterToOrderDetail(orderDetail));
+    // public List<orderDetail> findByName(String name){
+    //     return OrderDetailData.findByName(name);
+    // }
+    public void save(orderDetail orderDetail){
+        OrderDetailData.save(orderDetail);
     }
-    public orderDetail convertRegisterToOrderDetail(requestRegisterOrderDetail orderDetail){
-        return new orderDetail(0, orderDetail.getAmount(), orderDetail.getUnitPrice(),orderDetail.getSubtotal());
-    }
+   
     public void update(int id,orderDetail orderDetailUpdate){
         var orderDetail = findByIdOrderDetail(id);
         if(orderDetail.isPresent()){

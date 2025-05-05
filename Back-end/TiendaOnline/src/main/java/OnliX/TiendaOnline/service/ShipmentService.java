@@ -24,18 +24,20 @@ public class ShipmentService {
         return shipmentData.findById(id);
     }
 
-    public void save(requestRegisterShipment shipment){
-        shipmentData.save(convertRegisterToShipment(shipment));
+    // public List<shipment> findByName(String name){
+    //     return shipmentData.findByName(name);
+    // }
+    public void save(shipment shipment){
+        shipmentData.save(shipment);
     }
-    public shipment convertRegisterToShipment(requestRegisterShipment shipment){
-        return new shipment(0, null, true,shipment.getCompanyShipping(), shipment.getShippingDate(), shipment.getDeliveryDate());
-    }
-    public void update(int id,shipment shipmentUpdate){
+ 
+    public void update(int id,requestRegisterShipment listShipment){
         var shipment = findByIdShipment(id);
         if(shipment.isPresent()){
-            shipment.get().setCompanyShipping(shipmentUpdate.getCompanyShipping());
-            shipment.get().setShippingDate(shipmentUpdate.getShippingDate());
-            shipment.get().setDeliveryDate(shipmentUpdate.getDeliveryDate());
+            shipment.get().setCompanyShipping(listShipment.getCompanyShipping());
+            shipment.get().setShippingDate(listShipment.getShippingDate());
+            shipment.get().setDeliveryDate(listShipment.getDeliveryDate());
+            shipmentData.save(shipment.get());
         }
     }
     public void Delete(int id){

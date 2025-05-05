@@ -26,6 +26,9 @@ public class review {
     @Column(name="date",length = 1000,nullable = false)
     private LocalDate date;
 
+    public review() {
+    }
+
     public review(int id_review, int qualification, String comment, LocalDate date) {
         this.id_review = id_review;
         this.qualification = qualification;
@@ -67,7 +70,7 @@ public class review {
     
     @ManyToOne
     @JoinColumn(name="id_user",nullable= false)
-    private user user;
+    private Users User;
 
     @ManyToOne
     @JoinColumn(name="id_product",nullable = false)

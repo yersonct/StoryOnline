@@ -23,16 +23,18 @@ public class DetailCartService {
     public Optional<detailCart> findByIdDetailCart(int id){
         return detailCartData.findById(id);
     }
-    public void save(requestRegisterDetailCart detailCart){
-        detailCartData.save(convertRegisterToDetailCart(detailCart));
+    // public List<detailCart> findByName(String name){
+    //     return detailCartData.findByName(name);
+    // }
+    public void save(detailCart detailCart){
+        detailCartData.save(detailCart);
     }
-    public detailCart convertRegisterToDetailCart(requestRegisterDetailCart detailCart){
-        return new detailCart(0, detailCart.getAmount());
-    }
-    public void update(int id,detailCart detailCartUpdate){
+   
+    public void update(int id,requestRegisterDetailCart detailCart2){
        var detailCart = findByIdDetailCart(id);
        if(detailCart.isPresent()){
-        detailCart.get().setAmount(detailCartUpdate.getAmount());
+        detailCart.get().setAmount(detailCart2.getAmount());
+        detailCartData.save(detailCart.get());
        }
     }
     public void Delete(int id){

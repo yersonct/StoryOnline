@@ -23,18 +23,20 @@ public class ProductService {
     public Optional<product>findByIdProduct(int id){
         return ProductData.findById(id);
     }
-    public void save(requestRegisterProduct product){
-        ProductData.save(convertRegisterToProduct(product));
+    public List<product> findByName(String name){
+        return ProductData.findByName(name);
     }
-    public product convertRegisterToProduct(requestRegisterProduct product){
-        return new product(0, product.getName(), product.getDescription(), product.getPrice());
+    public void save(product product){
+        ProductData.save(product);
     }
-    public void update(int id, product productUpdate){
+  
+    public void update(int id, requestRegisterProduct product2){
         var product = findByIdProduct(id);
         if(product.isPresent()){
-            product.get().setName_product(productUpdate.getName_product());
-            product.get().setDescription(productUpdate.getDescription());
-            product.get().setPrice(productUpdate.getPrice());
+            product.get().setName_product(product2.getName());
+            product.get().setDescription(product2.getDescription());
+            product.get().setPrice(product2.getPrice());
+            ProductData.save(product.get());
         }
     }
     public void Delete(int id){

@@ -6,36 +6,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Entity(name="orderDetail")
+@Entity(name = "orderDetail")
 public class orderDetail {
     @Id
-    @Column(name="id_orderDetail",nullable = false)
-    private int id_orderDetail;
+    @Column(name = "id_orderDetail", nullable = false)
+    private int idOrderDetail;
 
-    @Column(name="amount",nullable = false)
+    @Column(name = "amount", nullable = false)
     private double amount;
 
-    @Column(name="unitPrice",nullable = false)
+    @Column(name = "unitPrice", nullable = false)
     private double unitPrice;
-    @Column(name="subtotal",nullable =  false)
+    @Column(name = "subtotal", nullable = false)
     private double subtotal;
 
     public orderDetail() {
     }
 
-    public orderDetail(int id_orderDetail, double amount, double unitPrice, double subtotal) {
-        this.id_orderDetail = id_orderDetail;
+    public orderDetail(int idOrderDetail, double amount, double unitPrice, double subtotal) {
+        this.idOrderDetail = idOrderDetail;
         this.amount = amount;
         this.unitPrice = unitPrice;
         this.subtotal = subtotal;
     }
 
     public int getId_orderDetail() {
-        return id_orderDetail;
+        return idOrderDetail;
     }
 
-    public void setId_orderDetail(int id_orderDetail) {
-        this.id_orderDetail = id_orderDetail;
+    public void setId_orderDetail(int idOrderDetail) {
+        this.idOrderDetail = idOrderDetail;
     }
 
     public double getAmount() {
@@ -61,18 +61,13 @@ public class orderDetail {
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
     }
-    
-
-    
-
-
 
 
     @ManyToOne
-    @JoinColumn(name = "id_order",nullable = false,referencedColumnName = "id_order")
-    private order order;
+    @JoinColumn(name = "id_order", nullable = false, referencedColumnName = "id_order")
+    private Orders orders;
 
     @ManyToOne
-    @JoinColumn(name="id_product",nullable = false)
+    @JoinColumn(name = "id_product", nullable = false)
     private product product;
 }

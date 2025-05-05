@@ -1,7 +1,9 @@
+// --- Funciones para Productos (Mostrar todos los datos menos id_product) ---
 function mostrarListadoProductos() {
     const listaProductosElement = document.getElementById('lista-productos');
+    const apiUrlProductos = 'http://localhost:8080/api/v1/product/';
 
-    fetch('../json/producto.json') // Reemplaza con la URL de tu API de productos
+    fetch(apiUrlProductos)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -9,23 +11,18 @@ function mostrarListadoProductos() {
             return response.json();
         })
         .then(data => {
-            data.productos.forEach(producto => {
+            data.forEach(producto => {
                 const productoDiv = document.createElement('div');
                 productoDiv.classList.add('producto-item');
-                productoDiv.addEventListener('click', () => mostrarDetalleProducto(producto.id, data.productos)); // Pasamos el ID y la lista completa
-
-                const imagenProducto = document.createElement('img');
-                imagenProducto.src = producto.imagenUrl || 'placeholder.png'; // Asegúrate de tener URLs de imágenes o un placeholder
-                imagenProducto.alt = producto.name;
+                productoDiv.addEventListener('click', () => mostrarDetalleProducto(producto)); // Pasamos el objeto completo
 
                 const nombreProductoH3 = document.createElement('h3');
-                nombreProductoH3.textContent = producto.name;
+                nombreProductoH3.textContent = producto.name_product;
 
                 const precioProductoSpan = document.createElement('span');
                 precioProductoSpan.classList.add('precio');
                 precioProductoSpan.textContent = `$${producto.price}`;
 
-                productoDiv.appendChild(imagenProducto);
                 productoDiv.appendChild(nombreProductoH3);
                 productoDiv.appendChild(precioProductoSpan);
                 listaProductosElement.appendChild(productoDiv);
@@ -37,61 +34,85 @@ function mostrarListadoProductos() {
         });
 }
 
-function mostrarDetalleProducto(productoId, productos) {
+function mostrarDetalleProducto(producto) {
     const detalleProductoElement = document.getElementById('detalle-producto');
-    detalleProductoElement.innerHTML = ''; // Limpiar detalles anteriores
-
-    const producto = productos.find(p => p.id === productoId);
+    detalleProductoElement.innerHTML = '';
 
     if (producto) {
         const nombreH2 = document.createElement('h2');
-        nombreH2.textContent = producto.name;
-
-        const imagenProducto = document.createElement('img');
-        imagenProducto.src = producto.imagenUrl || 'placeholder-detalle.png';
-        imagenProducto.alt = producto.name;
-        imagenProducto.style.maxWidth = '100%';
-        imagenProducto.style.height = 'auto';
-        imagenProducto.style.marginBottom = '15px';
-
-        const descripcionH3 = document.createElement('h3');
-        descripcionH3.textContent = 'Descripción:';
+        nombreH2.textContent = producto.name_product;
 
         const descripcionP = document.createElement('p');
-        descripcionP.textContent = producto.description || 'No hay descripción disponible.';
-
-        const precioH3 = document.createElement('h3');
-        precioH3.textContent = 'Precio:';
+        descripcionP.textContent = `Descripción: ${producto.description || 'No disponible'}`;
 
         const precioP = document.createElement('p');
         precioP.classList.add('precio');
-        precioP.textContent = `$${producto.price}`;
-        precioP.style.fontSize = '1.5em';
+        precioP.textContent = `Precio: $${producto.price}`;
+        precioP.style.fontSize = '1.2em';
         precioP.style.fontWeight = 'bold';
 
-        const stocksP = document.createElement('p');
-        stocksP.textContent = `Stock: ${producto.stocks}`;
-
-        const categoryIdP = document.createElement('p');
-        categoryIdP.textContent = `Categoría ID: ${producto.categoryId}`;
-
-        const supplierIdP = document.createElement('p');
-        supplierIdP.textContent = `Proveedor ID: ${producto.supplierId}`;
-
         detalleProductoElement.appendChild(nombreH2);
-        detalleProductoElement.appendChild(imagenProducto);
-        detalleProductoElement.appendChild(descripcionH3);
         detalleProductoElement.appendChild(descripcionP);
-        detalleProductoElement.appendChild(precioH3);
         detalleProductoElement.appendChild(precioP);
-        detalleProductoElement.appendChild(stocksP);
-        detalleProductoElement.appendChild(categoryIdP);
-        detalleProductoElement.appendChild(supplierIdP);
 
-        // Puedes añadir más detalles del producto aquí
+        // Puedes añadir más detalles si tu API los proporciona
     } else {
         detalleProductoElement.textContent = 'Producto no encontrado.';
     }
 }
 
-document.addEventListener('DOMContentLoaded', mostrarListadoProductos);
+// --- Funciones para Proveedores (Mostrar todos los datos menos id_supplier) ---
+function mostrarListadoProveedores() {
+    const listaProveedoresElement = document.getElementById('lista-proveedores');
+    const apiUrlProveedores = 'http://localhost:8080/api/v1/supplier/';
+
+    fetch(apiUrlProveedores)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            data.forEach(proveedor => {
+                const proveedorDiv = document.createElement('div');
+                proveedorDiv.classList.add('proveedor-item');
+                proveedorDiv.textContent = proveedor.name_supplier;
+                proveedorDiv.addEventListener('click', () => mostrarDetalleProveedor(proveedor));
+                listaProveedoresElement.appendChild(proveedorDiv);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los proveedores:', error);
+            listaProveedoresElement.textContent = 'Error al cargar los proveedores.';
+        });
+}
+
+function mostrarDetalleProveedor(proveedor) {
+    const detalleProveedorElement = document.getElementById('detalle-proveedor');
+    detalleProveedorElement.innerHTML = '';
+
+    if (proveedor) {
+        const nombreH2 = document.createElement('h2');
+        nombreH2.textContent = proveedor.name_supplier;
+
+        const contactoP = document.createElement('p');
+        contactoP.textContent = `Contacto: ${proveedor.contact_supplie || 'No disponible'}`;
+
+        const telefonoP = document.createElement('p');
+        telefonoP.textContent = `Teléfono: ${proveedor.phone || 'No disponible'}`;
+
+        detalleProveedorElement.appendChild(nombreH2);
+        detalleProveedorElement.appendChild(contactoP);
+        detalleProveedorElement.appendChild(telefonoP);
+
+    } else {
+        detalleProveedorElement.textContent = 'Proveedor no encontrado.';
+    }
+}
+
+// --- Evento para cargar las listas al cargar el DOM ---
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarListadoProductos();
+    mostrarListadoProveedores();
+});

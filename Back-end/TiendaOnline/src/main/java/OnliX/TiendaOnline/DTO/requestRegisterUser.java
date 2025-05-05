@@ -6,7 +6,7 @@ public class requestRegisterUser {
         * la petición o respuesta
         */
 
-        private int id;
+        private int id_user;
         private String name;
         private String email;
         private String role;
@@ -15,19 +15,19 @@ public class requestRegisterUser {
 
         }
 
-        public requestRegisterUser(int id, String name, String email, String role) {
-            this.id = id;
+        public requestRegisterUser(int id_user, String name, String email, String role) {
+            this.id_user = id_user;
             this.name = name;
             this.email = email;
             this.role = role;
         }
 
         public int getId() {
-            return id;
+            return id_user;
         }
 
         public void setId(int id) {
-            this.id = id;
+            this.id_user= id;
         }
 
         public String getName() {

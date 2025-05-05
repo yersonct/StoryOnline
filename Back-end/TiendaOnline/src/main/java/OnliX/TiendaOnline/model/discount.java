@@ -19,6 +19,10 @@ public class discount {
     private LocalDate starDate;
     @Column(name = "endDate",length = 30,nullable = false)
     private LocalDate endDate;
+
+    public discount() {
+    }
+
     public discount(int id_discount, String code, double porcentage, LocalDate starDate, LocalDate endDate) {
         this.id_discount = id_discount;
         this.code = code;

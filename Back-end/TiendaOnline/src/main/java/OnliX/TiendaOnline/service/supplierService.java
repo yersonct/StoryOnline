@@ -25,19 +25,20 @@ public class supplierService {
     public Optional<supplier> findByIdSupplier(int id){
         return supplierData.findById(id);
     }
-
-    public void save(requestRegisterSupplier supplier){
-        supplierData.save(convertRegisterToSupplier(supplier));
+    public List<supplier> findByName(String name){
+        return supplierData.findByName(name);
+    }
+    public void save(supplier supplier){
+        supplierData.save(supplier);
     }
 
-    public supplier convertRegisterToSupplier(requestRegisterSupplier supplier){
-        return new supplier(0, supplier.getName(), supplier.getContact(), null);
-    }
-    public void update(int id,supplier supplierUpdate){
+ 
+    public void update(int id,requestRegisterSupplier listSupplier){
         var supplier = findByIdSupplier(id);
         if(supplier.isPresent()){
-            supplier.get().setName_supplier(supplierUpdate.getName_supplier());
-            supplier.get().setContact_supplie(supplierUpdate.getContact_supplie());
+            supplier.get().setName_supplier(listSupplier.getName());
+            supplier.get().setContact_supplie(listSupplier.getContact());
+            supplierData.save(supplier.get());
         }
     }
     public void Delete(int id){

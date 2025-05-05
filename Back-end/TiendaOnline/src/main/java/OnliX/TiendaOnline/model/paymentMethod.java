@@ -21,6 +21,9 @@ public class paymentMethod {
     private boolean state;
     @Column(name="paymentDate",length = 20,nullable = false)
     private String paymentDate;
+
+    public paymentMethod() {
+    }
     public paymentMethod(int id_paymentMethod, String guy, boolean state, String paymentDate) {
         this.id_paymentMethod = id_paymentMethod;
         this.guy = guy;

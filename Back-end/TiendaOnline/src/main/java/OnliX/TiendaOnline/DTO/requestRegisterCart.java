@@ -1,17 +1,17 @@
 package OnliX.TiendaOnline.DTO;
 
 public class requestRegisterCart {
-    public int id;
+    public int id_cart;
     public String updateData;
     public requestRegisterCart(int id, String updateData) {
-        this.id = id;
+        this.id_cart = id;
         this.updateData = updateData;
     }
     public int getId() {
-        return id;
+        return id_cart;
     }
     public void setId(int id) {
-        this.id = id;
+        this.id_cart = id;
     }
     public String getUpdateData() {
         return updateData;

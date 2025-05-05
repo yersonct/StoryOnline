@@ -1,21 +1,21 @@
 package OnliX.TiendaOnline.DTO;
 
 public class requestRegisterOrderDetail {
-    public int id;
+    public int idOrderDetail;
     public double amount;
     public double unitPrice;
     public double subtotal;
     public requestRegisterOrderDetail(int id, double amount, double unitPrice, double subtotal) {
-        this.id = id;
+        this.idOrderDetail = id;
         this.amount = amount;
         this.unitPrice = unitPrice;
         this.subtotal = subtotal;
     }
     public int getId() {
-        return id;
+        return idOrderDetail;
     }
     public void setId(int id) {
-        this.id = id;
+        this.idOrderDetail = id;
     }
     public double getAmount() {
         return amount;

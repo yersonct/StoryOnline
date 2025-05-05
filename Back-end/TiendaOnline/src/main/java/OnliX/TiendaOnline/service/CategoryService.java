@@ -23,17 +23,19 @@ public class CategoryService {
     public Optional<category>findByCategory(int id){
         return categoryData.findById(id);
     }
-    public void save(requestRegisterCategory category){
-        categoryData.save(convertRegisterToCategory(category));
+    public List<category> findByName(String name){
+        return categoryData.findByName(name);
     }
-    public category convertRegisterToCategory(requestRegisterCategory category){
-        return new category(0, category.getName(), category.getDescription());
+    public void save(category category){
+        categoryData.save(category);
     }
-    public void update(int id,category categoryUpdate){
+  
+    public void update(int id,requestRegisterCategory categoria){
         var category = findByCategory(id);
         if(category.isPresent()){
-            category.get().setName(categoryUpdate.getName());
-            category.get().setDescription(categoryUpdate.getDescription());
+            category.get().setName(categoria.getName());
+            category.get().setDescription(categoria.getDescription());
+            categoryData.save(category.get());
         }
     }
     public void Delete(int id){

@@ -20,6 +20,11 @@ public class category {
     private String name;
     @Column(name="description",length = 1000,nullable = false)
     private String description;
+
+    public category() {
+    }
+    
+
     public category(int id_category, String name, String description) {
         this.id_category = id_category;
         this.name = name;

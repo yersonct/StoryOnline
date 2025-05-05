@@ -5,33 +5,33 @@ public class requestRegisterSupplier {
         * Agregar al DTO solo los elementos a exponer según
         * la petición o respuesta
         */
-        private int id;
-        private String name;
-        private String contact;
+        private int id_supplier;
+        private String name_supplier;
+        private String contact_supplie;
         public requestRegisterSupplier() {
         }
         public requestRegisterSupplier(int id, String name, String contact) {
-            this.id = id;
-            this.name = name;
-            this.contact = contact;
+            this.id_supplier = id;
+            this.name_supplier = name;
+            this.contact_supplie = contact;
         }
         public int getId() {
-            return id;
+            return id_supplier;
         }
         public void setId(int id) {
-            this.id = id;
+            this.id_supplier = id;
         }
         public String getName() {
-            return name;
+            return name_supplier;
         }
         public void setName(String name) {
-            this.name = name;
+            this.name_supplier = name;
         }
         public String getContact() {
-            return contact;
+            return contact_supplie;
         }
         public void setContact(String contact) {
-            this.contact = contact;
+            this.contact_supplie = contact;
         }
         
         

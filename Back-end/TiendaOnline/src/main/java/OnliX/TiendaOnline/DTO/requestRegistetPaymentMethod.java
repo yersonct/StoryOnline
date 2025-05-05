@@ -1,19 +1,19 @@
 package OnliX.TiendaOnline.DTO;
 
 public class requestRegistetPaymentMethod {
-    public int id;
+    public int id_paymentMethod;
     public String guy;
     public String paymentDate;
     public requestRegistetPaymentMethod(int id, String guy, String paymentDate) {
-        this.id = id;
+        this.id_paymentMethod = id;
         this.guy = guy;
         this.paymentDate = paymentDate;
     }
     public int getId() {
-        return id;
+        return id_paymentMethod;
     }
     public void setId(int id) {
-        this.id = id;
+        this.id_paymentMethod = id;
     }
     public String getGuy() {
         return guy;
