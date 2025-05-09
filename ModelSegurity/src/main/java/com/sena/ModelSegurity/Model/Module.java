@@ -37,6 +37,6 @@ public void setName_Module(String name_Module) {
     Name_Module = name_Module;
 }
 
- @OneToMany(mappedBy = "Module",cascade = CascadeType.ALL)
-    private List<FormModule> FormModule;
+@OneToMany(mappedBy = "module", cascade = CascadeType.ALL)  // Modificado
+    private List<FormModule> formModules;
 }

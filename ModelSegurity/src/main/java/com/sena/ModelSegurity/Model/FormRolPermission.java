@@ -18,9 +18,17 @@ private int Id_FormRolPermission;
 public FormRolPermission() {
 }
 
-public FormRolPermission(int id_FormRolPermission) {
+
+
+public FormRolPermission(int id_FormRolPermission, com.sena.ModelSegurity.Model.Form form,
+        com.sena.ModelSegurity.Model.Rol rol, com.sena.ModelSegurity.Model.Permission permission) {
     Id_FormRolPermission = id_FormRolPermission;
+    Form = form;
+    Rol = rol;
+    Permission = permission;
 }
+
+
 
 public int getId_FormRolPermission() {
     return Id_FormRolPermission;

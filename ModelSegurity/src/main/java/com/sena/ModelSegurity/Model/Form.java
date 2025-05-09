@@ -39,4 +39,8 @@ public void setName_Form(String name_Form) {
 
  @OneToMany(mappedBy = "Form",cascade = CascadeType.ALL)
     private List<FormModule> FormModule;
+ public void setDescription(String description) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setDescription'");
+ }
 }

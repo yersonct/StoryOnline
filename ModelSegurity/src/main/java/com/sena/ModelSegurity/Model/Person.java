@@ -115,7 +115,7 @@ public class Person {
         this.active = active;
     }
 
-    @OneToOne(mappedBy = "Users", cascade = CascadeType.ALL)
-    private Users Users;
+    @OneToOne(mappedBy = "person") // "person" debe ser la propiedad en la clase Users
+    private Users users;
     
 }

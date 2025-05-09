@@ -91,9 +91,9 @@ public class Users {
 
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id_Person", referencedColumnName = "Id_Person")
-    private Person person;
+    @OneToOne
+@JoinColumn(name = "person_id") // La columna de clave externa en la tabla Users
+private Person person; // El nombre de esta propiedad coincide con el "person" en mappedBy
 
 
     @OneToMany(mappedBy = "Users",cascade = CascadeType.ALL)

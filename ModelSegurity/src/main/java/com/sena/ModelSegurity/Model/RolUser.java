@@ -22,9 +22,15 @@ private int Id_RolUser;
 public RolUser() {
 }
 
-public RolUser(int id_RolUser) {
+
+
+public RolUser(int id_RolUser, com.sena.ModelSegurity.Model.Rol rol, com.sena.ModelSegurity.Model.Users users) {
     Id_RolUser = id_RolUser;
+    Rol = rol;
+    Users = users;
 }
+
+
 
 public int getId_RolUser() {
     return Id_RolUser;
