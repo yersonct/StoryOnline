@@ -4,27 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Mi Tienda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/categorias.css">
 </head>
 <body>
-    <div class="contenedor-principal">
-        <section class="listado-categorias">
-            <h2>Categorías</h2>
-            <div id="lista-categorias">
-                </div>
-        </section>
-        <section class="listado-productos">
-            <h2>Nuestros Productos</h2>
-            <div id="lista-productos">
-                </div>
-        </section>
-        <aside class="detalle-producto">
-            <h2>Detalle del Producto</h2>
-            <div id="detalle-producto">
-                <p>Selecciona un producto para ver sus detalles.</p>
+    <!-- Navegación superior -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Mi Tienda</h2>
             </div>
-        </aside>
+            <div class="nav-links">
+               <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Productos</a>
+                <a href="#" class="nav-link">Contacto</a>
+                <a href="#" class="nav-link active">Comentarios</a>
+                <a href="#" class="nav-link active">Pedidos</a>
+                <a href="#" class="nav-link active">Órdenes</a>
+            </div>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="cart-btn" aria-label="Carrito">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="m1 1 4 4 1 14h13l3-10H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Descubre Nuestros Productos</h1>
+            <p>Encuentra exactamente lo que necesitas en nuestra amplia selección de productos de calidad</p>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <!-- Contenedor principal -->
+    <div class="main-wrapper">
+        <div class="contenedor-principal">
+            <!-- Sidebar de categorías -->
+            <aside class="sidebar-categorias">
+                <div class="sidebar-header">
+                    <h2>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                        </svg>
+                        Categorías
+                    </h2>
+                    <button class="filter-toggle" id="filter-toggle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="categories-container" id="lista-categorias">
+                    <!-- Las categorías se cargarán dinámicamente -->
+                </div>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="main-content">
+                <!-- Header de productos -->
+                <div class="products-header">
+                    <div class="products-title">
+                        <h2>Nuestros Productos</h2>
+                        <span class="products-count" id="products-count">Cargando productos...</span>
+                    </div>
+                    <div class="products-controls">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" aria-label="Vista de cuadrícula">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="Vista de lista">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <select class="sort-select" id="sort-select">
+                            <option value="default">Ordenar por...</option>
+                            <option value="name-asc">Nombre A-Z</option>
+                            <option value="name-desc">Nombre Z-A</option>
+                            <option value="price-asc">Precio menor a mayor</option>
+                            <option value="price-desc">Precio mayor a menor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Lista de productos -->
+                <section class="products-section">
+                    <div id="lista-productos" class="products-grid">
+                        <!-- Los productos se cargarán dinámicamente -->
+                    </div>
+                    
+                    <!-- Loading state -->
+                    <div class="loading-state" id="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando productos...</p>
+                    </div>
+
+                    <!-- Empty state -->
+                    <div class="empty-state" id="empty-state" style="display: none;">
+                        <div class="empty-icon">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </div>
+                        <h3>No se encontraron productos</h3>
+                        <p>Intenta ajustar los filtros o buscar otros términos</p>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Panel de detalle del producto -->
+            <aside class="product-detail-panel" id="product-detail-panel">
+                <div class="panel-header">
+                    <h2>Detalle del Producto</h2>
+                    <button class="close-panel" id="close-panel" aria-label="Cerrar panel">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="panel-content" id="detalle-producto">
+                    <div class="no-selection">
+                        <div class="no-selection-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M7 7h.01"></path>
+                                <path d="M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"></path>
+                            </svg>
+                        </div>
+                        <h3>Selecciona un producto</h3>
+                        <p>Haz clic en cualquier producto para ver sus detalles completos aquí</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </div>
+
+    <!-- Overlay para móvil -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Mi Tienda</h4>
+                <p>Tu destino para productos de calidad</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mi Tienda. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script src="../js/categorias.js"></script>
 </body>

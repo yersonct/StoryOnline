@@ -3,24 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedores - Mi Tienda</title>
+    <title>Proveedores - ProShop</title>
     <link rel="stylesheet" href="../css/provedores.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="contenedor-principal">
-        <aside class="listado-proveedores">
-            <h2>Nuestros Proveedores</h2>
-            <div id="lista-proveedores">
-                </div>
-        </aside>
-        <main class="detalle-proveedor">
-            <h2>Detalle del Proveedor</h2>
-            <div id="detalle-proveedor">
-                <p>Selecciona un proveedor de la lista para ver sus detalles.</p>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>ProShop</h2>
             </div>
-        </main>
+            <div class="nav-links">
+   <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Productos</a>
+                <a href="#" class="nav-link">Contacto</a>
+                <a href="#" class="nav-link ">Comentarios</a>
+                <a href="#" class="nav-link ">Pedidos</a>
+                <a href="#" class="nav-link ">Órdenes</a>
+            </div>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Nuestros Socios Estratégicos</h1>
+            <p>Conoce a los proveedores que nos permiten ofrecer productos de la más alta calidad.</p>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <div class="main-wrapper providers-page-layout">
+        <div class="contenedor-principal">
+            <aside class="listado-proveedores sidebar">
+                <div class="aside-header">
+                    <h2>Proveedores</h2>
+                    <span class="suppliers-count" id="suppliers-total">0 proveedores</span>
+                </div>
+                
+                <div class="search-filter">
+                    <input type="text" id="search-suppliers" class="text-field" placeholder="Buscar proveedor...">
+                </div>
+
+                <div id="lista-proveedores" class="supplier-list">
+                    <div class="loading-state" id="loading-suppliers-list">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando proveedores...</p>
+                    </div>
+                    </div>
+            </aside>
+
+            <main class="detalle-proveedor main-content">
+                <div class="products-header main-detail-header">
+                    <h2>Detalle del Proveedor</h2>
+                    <button class="close-sidebar-btn d-none d-md-block" aria-label="Cerrar detalle"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="detalle-proveedor" class="info-card">
+                    <div class="empty-state" id="select-supplier-message">
+                        <i class="fas fa-handshake empty-icon"></i>
+                        <h3>Selecciona un proveedor</h3>
+                        <p>Haz clic en un proveedor de la lista para ver su información detallada aquí.</p>
+                    </div>
+
+                    </div>
+            </main>
+        </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h4>Sobre Nosotros</h4>
+                <p>Somos tu mejor opción para productos profesionales de alta calidad. Innovación y servicio al cliente son nuestra prioridad.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Soporte</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Calle Principal, Ciudad, País</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> info@proshop.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 ProShop. Todos los derechos reservados.
+        </div>
+    </footer>
 
     <script src="../js/provedores.js"></script>
 </body>

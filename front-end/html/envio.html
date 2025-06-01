@@ -3,21 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Compra - Mi Tienda</title>
+    <title>Detalle de Compra - ProShop</title>
     <link rel="stylesheet" href="../css/envios.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="contenedor-principal">
-        <section class="detalle-compra">
-            <h2>Detalle de tu Compra</h2>
-            <div id="lista-productos-comprados">
-                <p>Cargando los productos de tu compra...</p>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>ProShop</h2>
             </div>
-            <div id="total-compra">
+            <div class="nav-links">
+              <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Productos</a>
+                <a href="#" class="nav-link">Contacto</a>
+                <a href="#" class="nav-link active">Comentarios</a>
+                <a href="#" class="nav-link active">Pedidos</a>
+                <a href="#" class="nav-link active">Órdenes</a>
+            </div>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Tu Pedido, Tu Confirmación</h1>
+            <p>Revisa los detalles de tu compra y el estado de tu envío.</p>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <div class="main-wrapper">
+        <div class="contenedor-principal">
+            <section class="detalle-compra main-content">
+                <div class="products-header">
+                    <div class="products-title">
+                        <h2>Detalle de tu Compra</h2>
+                        <span class="products-count" id="order-id">Pedido #XYZ12345</span>
+                    </div>
                 </div>
-            <button id="volver-a-productos">Volver a la lista de productos</button>
-        </section>
+                
+                <div id="lista-productos-comprados">
+                    <div class="loading-state" id="loading-products">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando los productos de tu compra...</p>
+                    </div>
+                    </div>
+
+                <div id="total-compra" class="summary-card">
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span class="summary-value">$<span id="subtotal-value">0.00</span></span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Envío:</span>
+                        <span class="summary-value">$<span id="shipping-value">5.00</span></span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total de la Compra:</span>
+                        <span class="summary-value total-price">$<span id="total-value">0.00</span></span>
+                    </div>
+                </div>
+
+                <div id="info-envio-container" class="info-envio-section">
+                    <div class="loading-state" id="loading-shipment" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando información de envío...</p>
+                    </div>
+                    <div class="empty-state" id="empty-shipment" style="display: none;">
+                        <span class="empty-icon"><i class="fas fa-truck-loading fa-3x"></i></span>
+                        <h3>No se encontró información de envío.</h3>
+                        <p>Revisa tu número de pedido o contacta a soporte.</p>
+                    </div>
+                </div>
+                
+                <div class="product-actions" style="justify-content: center;">
+                    <button id="volver-a-productos" class="btn-primary">
+                        <i class="fas fa-arrow-left"></i> Volver a la lista de productos
+                    </button>
+                </div>
+            </section>
+        </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h4>Sobre Nosotros</h4>
+                <p>Somos tu mejor opción para productos profesionales de alta calidad. Innovación y servicio al cliente son nuestra prioridad.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Soporte</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Calle Principal, Ciudad, País</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> info@proshop.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 ProShop. Todos los derechos reservados.
+        </div>
+    </footer>
 
     <script src="../js/envio.js"></script>
 </body>

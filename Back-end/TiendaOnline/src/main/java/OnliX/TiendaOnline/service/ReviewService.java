@@ -11,7 +11,6 @@ import OnliX.TiendaOnline.Interfaces.IReview;
 import OnliX.TiendaOnline.model.review;
 import OnliX.TiendaOnline.model.shipment;
 
-@SuppressWarnings("unused")
 @Service
 public class ReviewService {
     /*

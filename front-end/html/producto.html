@@ -3,23 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Mi Tienda</title>
+    <title>Productos - ProShop</title>
     <link rel="stylesheet" href="../css/producto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="contenedor-principal">
-        <section class="listado-productos">
-            <h2>Nuestros Productos</h2>
-            <div id="lista-productos">
-                </div>
-        </section>
-        <aside class="detalle-producto">
-            <h2>Detalle del Producto</h2>
-            <div id="detalle-producto">
-                <p>Selecciona un producto para ver sus detalles.</p>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>ProShop</h2>
             </div>
-        </aside>
+            <div class="nav-links">
+     <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Productos</a>
+                <a href="#" class="nav-link">Contacto</a>
+                <a href="#" class="nav-link ">Comentarios</a>
+                <a href="#" class="nav-link ">Pedidos</a>
+                <a href="#" class="nav-link ">Órdenes</a>
+            </div>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                <button class="cart-btn" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Descubre Nuestra Colección</h1>
+            <p>Explora productos de alta calidad diseñados para tus necesidades profesionales.</p>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <div class="main-wrapper products-page-layout">
+        <div class="contenedor-principal">
+            <section class="listado-productos main-content">
+                <div class="products-header">
+                    <div class="products-title">
+                        <h2>Todos los Productos</h2>
+                        <span class="products-count" id="products-total">0 productos</span>
+                    </div>
+                    <div class="products-filters">
+                        <select id="sort-by" class="select-field">
+                            <option value="default">Ordenar por...</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="name-asc">Nombre: A-Z</option>
+                        </select>
+                        <input type="text" id="search-products" class="text-field" placeholder="Buscar productos...">
+                    </div>
+                </div>
+                
+                <div id="lista-productos" class="product-grid">
+                    <div class="loading-state full-width" id="loading-products-list">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando productos...</p>
+                    </div>
+
+                    </div>
+            </section>
+
+            <aside class="detalle-producto sidebar">
+                <div class="products-header aside-header">
+                    <h2>Detalle del Producto</h2>
+                    <button class="close-sidebar-btn d-none d-md-block" aria-label="Cerrar detalle"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="detalle-producto">
+                    <div class="empty-state" id="select-product-message">
+                        <i class="fas fa-hand-pointer empty-icon"></i>
+                        <h3>Selecciona un producto</h3>
+                        <p>Haz clic en un producto de la lista para ver sus detalles completos aquí.</p>
+                    </div>
+
+                    </div>
+            </aside>
+        </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h4>Sobre Nosotros</h4>
+                <p>Somos tu mejor opción para productos profesionales de alta calidad. Innovación y servicio al cliente son nuestra prioridad.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Soporte</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Calle Principal, Ciudad, País</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> info@proshop.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 ProShop. Todos los derechos reservados.
+        </div>
+    </footer>
 
     <script src="../js/producto.js"></script>
 </body>

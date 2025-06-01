@@ -5,54 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro y Login - Mi Tienda</title>
     <link rel="stylesheet" href="../css/registro.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="contenedor-formularios">
-        <div class="formulario registro">
-            <h2>Crear Cuenta</h2>
-            <form id="registroForm">
-                <div class="campo">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <span class="error-mensaje" id="nombreError"></span>
+    <div class="background-overlay"></div>
+    
+    <div class="auth-container">
+        <div class="form-wrapper">
+            <div class="form-panel registro activo">
+                <div class="form-header">
+                    <h2><i class="fas fa-user-plus"></i> Crear Cuenta</h2>
+                    <p class="subtitle">Únete a nuestra comunidad</p>
                 </div>
-                <div class="campo">
-                    <label for="emailRegistro">Email:</label>
-                    <input type="email" id="emailRegistro" name="emailRegistro" required>
-                    <span class="error-mensaje" id="emailRegistroError"></span>
+                
+                <form id="registroForm" class="auth-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                            <label for="nombre">Nombre completo</label>
+                        </div>
+                        <span class="error-message" id="nombreError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="emailRegistro" name="emailRegistro" placeholder="correo@ejemplo.com" required>
+                            <label for="emailRegistro">Correo electrónico</label>
+                        </div>
+                        <span class="error-message" id="emailRegistroError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="passwordRegistro" name="passwordRegistro" placeholder="••••••••" required>
+                            <label for="passwordRegistro">Contraseña</label>
+                            <button type="button" class="toggle-password" data-target="passwordRegistro">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-bar" id="strengthBar"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Fortaleza de la contraseña</span>
+                        </div>
+                        <span class="error-message" id="passwordRegistroError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                            <label for="confirmPassword">Confirmar contraseña</label>
+                            <button type="button" class="toggle-password" data-target="confirmPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Crear cuenta</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </button>
+
+                    <div class="form-footer">
+                        <p>¿Ya tienes cuenta? 
+                            <a href="#" class="link-switch mostrar-login">Iniciar sesión</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-panel login">
+                <div class="form-header">
+                    <h2><i class="fas fa-sign-in-alt"></i> Bienvenido</h2>
+                    <p class="subtitle">Inicia sesión en tu cuenta</p>
                 </div>
-                <div class="campo">
-                    <label for="passwordRegistro">Contraseña:</label>
-                    <input type="password" id="passwordRegistro" name="passwordRegistro" required>
-                    <span class="error-mensaje" id="passwordRegistroError"></span>
-                </div>
-                <div class="campo">
-                    <label for="confirmPassword">Confirmar Contraseña:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    <span class="error-mensaje" id="confirmPasswordError"></span>
-                </div>
-                <button type="submit" class="btn-registro">Registrarse</button>
-                <p class="cambiar-formulario">¿Ya tienes cuenta? <a href="#" class="mostrar-login">Iniciar Sesión</a></p>
-            </form>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="emailLogin" name="emailLogin" placeholder="correo@ejemplo.com" required>
+                            <label for="emailLogin">Correo electrónico</label>
+                        </div>
+                        <span class="error-message" id="emailLoginError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="passwordLogin" name="passwordLogin" placeholder="••••••••" required>
+                            <label for="passwordLogin">Contraseña</label>
+                            <button type="button" class="toggle-password" data-target="passwordLogin">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordLoginError"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Recordarme
+                        </label>
+                        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Iniciar sesión</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </button>
+
+                    <div class="divider">
+                        <span>o continúa con</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social google">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button type="button" class="btn-social facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                    </div>
+
+                    <div class="form-footer">
+                        <p>¿No tienes cuenta? 
+                            <a href="#" class="link-switch mostrar-registro">Regístrate aquí</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <div class="formulario login">
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm">
-                <div class="campo">
-                    <label for="emailLogin">Email:</label>
-                    <input type="email" id="emailLogin" name="emailLogin" required>
-                    <span class="error-mensaje" id="emailLoginError"></span>
-                </div>
-                <div class="campo">
-                    <label for="passwordLogin">Contraseña:</label>
-                    <input type="password" id="passwordLogin" name="passwordLogin" required>
-                    <span class="error-mensaje" id="passwordLoginError"></span>
-                </div>
-                <button type="submit" class="btn-login">Iniciar Sesión</button>
-                <p class="cambiar-formulario">¿No tienes cuenta? <a href="#" class="mostrar-registro">Regístrate</a></p>
-            </form>
+        <div class="progress-indicators">
+            <div class="indicator active" data-form="registro"></div>
+            <div class="indicator" data-form="login"></div>
         </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Procesando...</p>
     </div>
 
     <script src="../js/registro.js"></script>
